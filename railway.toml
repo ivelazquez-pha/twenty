@@ -1,0 +1,9 @@
+[build]
+dockerfilePath = "packages/twenty-docker/twenty/Dockerfile"
+dockerTarget = "twenty"
+
+[deploy]
+healthcheckPath = "/healthz"
+healthcheckTimeout = 300
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
