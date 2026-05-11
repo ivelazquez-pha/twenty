@@ -256,3 +256,9 @@ LABEL org.opencontainers.image.source=https://github.com/twentyhq/twenty
 LABEL org.opencontainers.image.description="All-in-one Twenty image for local development and SDK usage. Includes PostgreSQL, Redis, server, and worker."
 
 ENTRYPOINT ["/init"]
+
+# ===========================================================================
+# Default target: ensures 'twenty' is built when no --target is specified
+# ===========================================================================
+
+FROM twenty AS default
