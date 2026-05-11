@@ -145,6 +145,8 @@ USER 1000
 
 FROM twenty-server AS twenty
 
+WORKDIR /app
+
 COPY --chown=1000 --from=twenty-front-build /app/packages/twenty-front/build /app/packages/twenty-server/dist/front
 
 LABEL org.opencontainers.image.description="Twenty image with backend and frontend."
@@ -256,5 +258,9 @@ LABEL org.opencontainers.image.source=https://github.com/twentyhq/twenty
 LABEL org.opencontainers.image.description="All-in-one Twenty image for local development and SDK usage. Includes PostgreSQL, Redis, server, and worker."
 
 ENTRYPOINT ["/init"]
+
+# ===========================================================================
+# Default target: ensures 'twenty' is built when no --target is specified
+# ===========================================================================
 
 FROM twenty AS default
