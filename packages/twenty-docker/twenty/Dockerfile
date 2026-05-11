@@ -145,6 +145,8 @@ USER 1000
 
 FROM twenty-server AS twenty
 
+WORKDIR /app
+
 COPY --chown=1000 --from=twenty-front-build /app/packages/twenty-front/build /app/packages/twenty-server/dist/front
 
 LABEL org.opencontainers.image.description="Twenty image with backend and frontend."
